@@ -5,7 +5,7 @@ import math
 def forward_kinematics(joint_angles):
     '''
     Calculates the TCP coordinates from the joint angles
-    :param joint_angles: list, joint angles [j0, j1, j2, j3, ...]
+    :param joint_angles: list, joint angles [j0, j1, j2, j3]
     :return: list, the list of TCP coordinates
     '''
     # link lengths
@@ -44,7 +44,7 @@ def inverse_kinematics(coords, gripper_angle = 0):
 
     # joint offsets due to combined l1 - l2
     j1_offset = math.atan(l2/l1)
-    j2_offset = math.pi/2.0 + j1_offset
+    j2_offset = math.pi/2.0 + j1_offset # includes +90 degrees offset, too
 
     # default return list
     angles = [0,0,0,0]
@@ -68,8 +68,8 @@ def inverse_kinematics(coords, gripper_angle = 0):
     gamma = math.acos((l1c*l1c + c*c - l3*l3)/(2*c*l1c))
 
     j1 = math.pi/2.0 - alpha - gamma - j1_offset
-    j2 = math.acos((l1c*l1c + l3*l3 - c*c)/(2*l1c*l3)) - j2_offset # j2 = 180 - j2'
-    delta = math.pi - j2 - gamma - j2_offset # delta = 180 - j2' - gamma
+    j2 = math.acos((l1c*l1c + l3*l3 - c*c)/(2*l1c*l3)) - j2_offset
+    delta = math.pi - j2 - gamma - j2_offset
 
     j3 = math.pi + gripper_angle - beta - delta
 
