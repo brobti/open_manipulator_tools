@@ -2,14 +2,18 @@
 
 import rospy
 import math
+import actionlib
 
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-from kinematicsMessage.srv import kinematicsMessage, kinematicsMessageResponse
+from sensor_msgs.msg import JointState
+from open_manipulator_tools.msg import kinematicsActionAction, kinematicsActionFeedback, kinematicsActionResult
+
 try:
     from queue import Queue
 except ImportError:
     from Queue import Queue
 
+JointStates = [0, 0, 0, 0]
 
 def inverse_kinematics(coords, gripper_angle=0):
     '''
@@ -34,7 +38,7 @@ def inverse_kinematics(coords, gripper_angle=0):
     j2_offset = math.pi/2.0 + j1_offset # includes +90 degrees offset, too
 
     # default return list
-    angles = [0,0,0,0]
+    angles = [0, 0, 0, 0]
 
     # Calculate the shoulder pan angle from x and y coordinates
     j0 = math.atan(coords[1]/(coords[0] - x_offset))
@@ -68,73 +72,79 @@ def inverse_kinematics(coords, gripper_angle=0):
     return angles
 
 
-class BufferQueue(Queue):
-    """Slight modification of the standard Queue that discards the oldest item
-    when adding an item and the queue is full.
-    """
-    def put(self, item, *args, **kwargs):
-        # The base implementation, for reference:
-        # https://github.com/python/cpython/blob/2.7/Lib/Queue.py#L107
-        # https://github.com/python/cpython/blob/3.8/Lib/queue.py#L121
-        with self.mutex:
-            if self.maxsize > 0 and self._qsize() == self.maxsize:
-                self._get()
-            self._put(item)
-            self.unfinished_tasks += 1
-            self.not_empty.notify()
+#def kinematics_server_operation(req):
 
 
-def kinematics_server_operation(req):
-    # getting joint names
-    controller_name = "arm_controller"
-    joint_names = rospy.get_param("/%s/joints" % controller_name)
-    rospy.loginfo("Joint names: %s" % joint_names)
+class jointAnglesAction(object):
+    _fb = kinematicsActionFeedback()
+    _res = kinematicsActionResult()
 
-    # creating command
-    trajectory_command = JointTrajectory()
-    trajectory_command.header.stamp = rospy.Time.now()
-    trajectory_command.joint_names = joint_names
-    point = JointTrajectoryPoint()
-    joint_angles = inverse_kinematics([req.x, req.y, req.z], req.alpha)
-    point.positions = joint_angles
-    point.velocities = [0.0, 0.0, 0.0, 0.0]
-    point.time_from_start = rospy.rostime.Duration(1, 0)
-    trajectory_command.points = [point]
+    def __init__(self, name):
+        self._action_name = name
+        self._as = actionlib.SimpleActionServer(self._action_name, kinematicsActionAction, execute_cb = self.exec_cb, auto_start = False)
+        self._as.start()
+        rospy.loginfo('Kinematics action server started...')
 
-    # publishing command
-    pub.publish(trajectory_command)
+    def exec_cb(self, goal):
+        rate = rospy.Rate(5)
+        success = True
+        self._fb.time_elapsed = 0
 
-    # subscriber checking the joints until the gripper arrives to the destination
-    error = 0.1
-    watchdog = 0
-    maxValue = 100000
-    actual_joint_angles = qJoints.get()
-    while (abs(actual_joint_angles[0] - joint_angles[0]) > error or abs(actual_joint_angles[1] - joint_angles[1]) > error or
-           abs(actual_joint_angles[2] - joint_angles[2]) > error or abs(actual_joint_angles[3] - joint_angles[3]) > error)\
-            and watchdog < maxValue:
-        watchdog = watchdog + 1
+        rospy.loginfo("%s node is moving the robot to the (%f,%f,%f) coordinates"%(self._action_name, goal.x, goal.y, goal.z))
 
-    if watchdog >= maxValue:
-        retVal = False
-    else:
-        retVal = True
+        # getting joint names
+        controller_name = "arm_controller"
+        joint_names = rospy.get_param("/%s/joints" % controller_name)
+        rospy.loginfo("Joint names: %s" % joint_names)
 
-    # return value
-    return retVal
+        # creating command
+        trajectory_command = JointTrajectory()
+        trajectory_command.header.stamp = rospy.Time.now()
+        trajectory_command.joint_names = joint_names
+        point = JointTrajectoryPoint()
+        joint_angles = inverse_kinematics([goal.x, goal.y, goal.z], goal.alpha)
+        point.positions = joint_angles
+        point.velocities = [0.0, 0.0, 0.0, 0.0]
+        point.time_from_start = rospy.rostime.Duration(1, 0)
+        trajectory_command.points = [point]
+
+        # publishing command
+        pub.publish(trajectory_command)
+
+        # subscriber checking the joints until the gripper arrives to the destination
+        error = 0.1
+        maxValue = 100000
+        while (abs(JointStates[0] - joint_angles[0]) > error or abs(
+                JointStates[1] - joint_angles[1]) > error or
+               abs(JointStates[2] - joint_angles[2]) > error or abs(
+                    JointStates[3] - joint_angles[3]) > error) \
+                and self._fb.time_elapsed < maxValue:
+            self._fb.time_elapsed = self._fb.time_elapsed + 1
+            self._as.publish_feedback(self._fb)
+            rate.sleep()
+
+        if success:
+            if self._fb.time_elapsed >= maxValue:
+                retVal = False
+            else:
+                retVal = True
+            self._res.result = retVal
+            rospy.loginfo("%s reached its goal" % self._action_name)
+            self._as.set_succeeded(self._res)
 
 
 def joint_angles_subscriber(msg):
-    qJoints.put([msg[0], msg[1], msg[2], msg[3]])
+    global JointStates
+    JointStates = [msg.position[0], msg.position[1], msg.position[2], msg.position[3]]
 
 
 if __name__ == "__main__":
     queueSize = 1
-    qJoints = BufferQueue(queueSize)
-    rospy.init_node('send_joint_angles')
-    joint_topic = "/joint_topic_placeholder"
-    rospy.Subscriber(joint_topic, jointTypePlaceholder, joint_angles_subscriber)
-    pub = rospy.Publisher('/arm_controller/command', JointTrajectory, queue_size=1)
-    s = rospy.Service('kinematics_handler', kinematicsMessage, kinematics_server_operation)
     rospy.init_node('send_joint_angles_ik')
+    joint_topic = "/joint_states"
+    rospy.Subscriber(joint_topic, JointState, joint_angles_subscriber)
+    pub = rospy.Publisher('/arm_controller/command', JointTrajectory, queue_size=1)
+    server = jointAnglesAction(rospy.get_name())
+    #server = rospy.Service('kinematics_handler', kinematicsMessage, kinematics_server_operation)
     rospy.spin()
 

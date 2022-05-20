@@ -4,3 +4,5 @@ float32 z
 float32 alpha
 ---
 bool result
+---
+float32 time_elapsed
