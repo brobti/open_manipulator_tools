@@ -114,6 +114,7 @@ class jointAnglesAction(object):
         # subscriber checking the joints until the gripper arrives to the destination
         error = 0.1
         maxValue = 100000
+        delta = [abs(JointStates[0] - joint_angles[0]), abs(JointStates[1] - joint_angles[1]),abs(JointStates[2] - joint_angles[2]), abs(JointStates[3] - joint_angles[3])]
         while (abs(JointStates[0] - joint_angles[0]) > error or abs(
                 JointStates[1] - joint_angles[1]) > error or
                abs(JointStates[2] - joint_angles[2]) > error or abs(
@@ -121,6 +122,9 @@ class jointAnglesAction(object):
                 and self._fb.time_elapsed < maxValue:
             self._fb.time_elapsed = self._fb.time_elapsed + 1
             self._as.publish_feedback(self._fb)
+            #rospy.loginfo(JointStates)
+            #rospy.loginfo(joint_angles)
+            #rospy.loginfo(delta)
             rate.sleep()
 
         if success:
@@ -135,7 +139,7 @@ class jointAnglesAction(object):
 
 def joint_angles_subscriber(msg):
     global JointStates
-    JointStates = [msg.position[0], msg.position[1], msg.position[2], msg.position[3]]
+    JointStates = [msg.position[2], msg.position[3], msg.position[4], msg.position[5]]
 
 
 if __name__ == "__main__":

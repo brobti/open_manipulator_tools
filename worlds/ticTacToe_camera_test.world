@@ -481,10 +481,10 @@
       <pose>0.466042 -0.509452 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>660 610000000</sim_time>
-      <real_time>0 0</real_time>
-      <wall_time>1652620592 49476707</wall_time>
-      <iterations>0</iterations>
+      <sim_time>1275 559000000</sim_time>
+      <real_time>617 86866727</real_time>
+      <wall_time>1653141026 505584205</wall_time>
+      <iterations>614949</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -496,139 +496,139 @@
         </link>
       </model>
       <model name='hengeresBabuKek'>
-        <pose>0.1335 0 1.02 0 -0 0</pose>
+        <pose>1 0 1.02 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_2'>
-          <pose>0.133503 0 1.02 0 -0 0</pose>
+        <link name='link'>
+          <pose>1 0 1.02 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='hengeresBabuKek_clone'>
-        <pose>0.1815 0 1.02 0 -0 0</pose>
+      <model name='hengeresBabuKek_1'>
+        <pose>0.107 0.094 1.02 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_2'>
-          <pose>0.181503 0 1.02 0 -0 0</pose>
+        <link name='link'>
+          <pose>0.107 0.094 1.02 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='hengeresBabuKek_clone_clone'>
-        <pose>0.2295 0 1.02 0 -0 0</pose>
+      <model name='hengeresBabuKek_2'>
+        <pose>0.107 0.0363 1.02 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_2'>
-          <pose>0.229503 0 1.02 0 -0 0</pose>
+        <link name='link'>
+          <pose>0.107 0.0363 1.02 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='hengeresBabuKek_clone_clone_0'>
-        <pose>0.1815 0.048 1.02 0 -0 0</pose>
+      <model name='hengeresBabuKek_3'>
+        <pose>0.107 -0.0363 1.02 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_2'>
-          <pose>0.181503 0.048 1.02 0 -0 0</pose>
+        <link name='link'>
+          <pose>0.107 -0.0363 1.02 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='hengeresBabuKek_clone_clone_0_clone'>
-        <pose>0.1815 -0.048 1.02 0 -0 0</pose>
+      <model name='hengeresBabuKek_4'>
+        <pose>0.107 -0.094 1.02 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_2'>
-          <pose>0.181503 -0.048 1.02 0 -0 0</pose>
+        <link name='link'>
+          <pose>0.107 -0.094 1.02 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='hengeresBabuPiros_1'>
+        <pose>0.059 -0.094 1.02 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.059 -0.094 1.02 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='hengeresBabuPiros_2'>
+        <pose>0.059 -0.0363 1.015 1.4e-05 -1.8e-05 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.059 -0.0363 1.015 1.4e-05 -1.8e-05 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='hengeresBabuPiros_3'>
-        <pose>0.1335 0.048 1.02 0 -0 0</pose>
+        <pose>0.059 0.0363 1.015 1.6e-05 -2.3e-05 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_4'>
-          <pose>0.1335 0.048 1.02 0 -0 0</pose>
+        <link name='link'>
+          <pose>0.059 0.0363 1.015 1.6e-05 -2.3e-05 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
-      <model name='hengeresBabuPiros_3_clone'>
-        <pose>0.1335 -0.048 1.02 0 -0 0</pose>
+      <model name='hengeresBabuPiros_4'>
+        <pose>0.059 0.094 1.015 1.3e-05 -1.9e-05 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_4'>
-          <pose>0.1335 -0.048 1.02 0 -0 0</pose>
+        <link name='link'>
+          <pose>0.059 0.094 1.015 1.3e-05 -1.9e-05 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='hengeresBabuPiros_3_clone_clone'>
-        <pose>0.2295 0.048 1.02 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link_4'>
-          <pose>0.2295 0.048 1.02 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='hengeresBabuPiros_3_clone_clone_clone'>
-        <pose>0.2295 -0.048 1.02 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link_4'>
-          <pose>0.2295 -0.048 1.02 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='robot'>
-        <pose>0 0 1.02 0 -0 0</pose>
+        <pose>-0 -0 1.02 1e-06 -0.000276 -0</pose>
         <scale>1 1 1</scale>
         <link name='gripper_link'>
-          <pose>0.093799 0.021 1.26574 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <pose>0.24574 0.021071 1.21659 -3e-06 0.035454 0.000266</pose>
+          <velocity>0.012489 -2.4e-05 -0.025904 -3.1e-05 0.115259 -0.000115</velocity>
+          <acceleration>-0 -0 0 0 -0 0</acceleration>
+          <wrench>-0 -0 0 0 -0 0</wrench>
         </link>
         <link name='gripper_link_sub'>
-          <pose>0.093799 -0.021 1.26574 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <pose>0.245751 -0.02093 1.21659 -3e-06 0.035453 0.000266</pose>
+          <velocity>0.01248 0.015551 -0.025905 -3.1e-05 0.115259 -0.000115</velocity>
+          <acceleration>-0 2.5e-05 -0 0 -0 0</acceleration>
+          <wrench>-0 0 -0 0 -0 0</wrench>
         </link>
         <link name='link1'>
-          <pose>0 0 1.02 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
+          <pose>-0 -0 1.02 1e-06 -0.000276 -0</pose>
+          <velocity>0 -0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='link2'>
-          <pose>0.012 0 1.037 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <pose>0.012031 -0 1.037 -1e-06 0.000485 0.000268</pose>
+          <velocity>-0 0 0 -0 -0 -0.000115</velocity>
+          <acceleration>-0 -0 0 0 -0 0</acceleration>
+          <wrench>-0 -0 0 0 -0 0</wrench>
         </link>
         <link name='link3'>
-          <pose>0.012 0 1.0965 0 -1 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <pose>0.012066 0 1.0965 -1e-06 0.032135 0.000266</pose>
+          <velocity>0 -0 1e-06 -2.8e-05 0.104406 -0.000115</velocity>
+          <acceleration>-0 -0 -0 4.3e-05 -0 1e-05</acceleration>
+          <wrench>-0 -0 -0 0 -0 0</wrench>
         </link>
         <link name='link4'>
-          <pose>-0.082741 0 1.18585 0 -0.7 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <pose>0.040167 8e-06 1.22366 -3e-06 0.033665 0.000266</pose>
+          <velocity>0.013277 0 -0.002933 -2.9e-05 0.109421 -0.000115</velocity>
+          <acceleration>-0 -0 -0 -1.8e-05 -0 -6.1e-05</acceleration>
+          <wrench>-0 -0 -0 0 -0 0</wrench>
         </link>
         <link name='link5'>
-          <pose>0.012099 0 1.26574 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <pose>0.164097 4.1e-05 1.21948 -3e-06 0.035452 0.000266</pose>
+          <velocity>0.01282 -1.4e-05 -0.016494 -3.1e-05 0.115259 -0.000115</velocity>
+          <acceleration>-0 0 -0 0 -0 0</acceleration>
+          <wrench>-0 0 -0 0 -0 0</wrench>
         </link>
       </model>
       <model name='table'>
@@ -657,13 +657,13 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>1.27041 -2.57152 2.61356 -0 0.40095 1.87847</pose>
+        <pose>0.012864 1.06663 1.81929 -0 0.75695 -1.29672</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <model name='hengeresBabuPiros_3'>
-      <link name='link_4'>
+    <model name='hengeresBabuPiros_1'>
+      <link name='link'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -1433,8 +1433,8 @@
       </plugin>
       <pose>0 0 1.02 0 -0 0</pose>
     </model>
-    <model name='hengeresBabuKek_clone'>
-      <link name='link_2'>
+    <model name='hengeresBabuKek_1'>
+      <link name='link'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -1538,8 +1538,8 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-0.051923 0.935666 1.02 0 -0 0</pose>
     </model>
-    <model name='hengeresBabuKek_clone_clone'>
-      <link name='link_2'>
+    <model name='hengeresBabuKek_2'>
+      <link name='link'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -1643,8 +1643,8 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-0.122565 0.922305 1.02 0 -0 0</pose>
     </model>
-    <model name='hengeresBabuKek_clone_clone_0'>
-      <link name='link_2'>
+    <model name='hengeresBabuKek_3'>
+      <link name='link'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -1748,8 +1748,8 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>0.084379 1.07123 1.02 0 -0 0</pose>
     </model>
-    <model name='hengeresBabuKek_clone_clone_0_clone'>
-      <link name='link_2'>
+    <model name='hengeresBabuKek_4'>
+      <link name='link'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -1853,8 +1853,8 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-0.17601 1.10131 1.02 0 -0 0</pose>
     </model>
-    <model name='hengeresBabuPiros_3_clone'>
-      <link name='link_4'>
+    <model name='hengeresBabuPiros_2'>
+      <link name='link'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -1958,8 +1958,8 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>0.023871 1.00235 1.02 0 -0 0</pose>
     </model>
-    <model name='hengeresBabuPiros_3_clone_clone'>
-      <link name='link_4'>
+    <model name='hengeresBabuPiros_3'>
+      <link name='link'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -2063,8 +2063,8 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-0.00406 0.930481 1.02 0 -0 0</pose>
     </model>
-    <model name='hengeresBabuPiros_3_clone_clone_clone'>
-      <link name='link_4'>
+    <model name='hengeresBabuPiros_4'>
+      <link name='link'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -2168,5 +2168,6 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-0.201348 1.27173 1.02 0 -0 0</pose>
     </model>
+    <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/>
   </world>
 </sdf>
