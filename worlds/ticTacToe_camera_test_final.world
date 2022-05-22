@@ -481,10 +481,10 @@
       <pose>0.466042 -0.509452 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>1275 559000000</sim_time>
-      <real_time>617 86866727</real_time>
-      <wall_time>1653141026 505584205</wall_time>
-      <iterations>614949</iterations>
+      <sim_time>1432 917000000</sim_time>
+      <real_time>170 17988763</real_time>
+      <wall_time>1653249252 400874043</wall_time>
+      <iterations>157358</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -495,91 +495,81 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='hengeresBabuKek'>
-        <pose>1 0 1.02 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>1 0 1.02 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
-        </link>
-      </model>
       <model name='hengeresBabuKek_1'>
-        <pose>0.107 0.094 1.02 0 -0 0</pose>
+        <pose>0.106997 0.094 1.015 9e-06 -3.9e-05 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.107 0.094 1.02 0 -0 0</pose>
+          <pose>0.107 0.094 1.015 9e-06 -3.9e-05 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='hengeresBabuKek_2'>
-        <pose>0.107 0.0363 1.02 0 -0 0</pose>
+        <pose>0.106997 0.0363 1.015 1.3e-05 -1.3e-05 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.107 0.0363 1.02 0 -0 0</pose>
+          <pose>0.107 0.0363 1.015 1.3e-05 -1.3e-05 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='hengeresBabuKek_3'>
-        <pose>0.107 -0.0363 1.02 0 -0 0</pose>
+        <pose>0.106997 -0.0363 1.015 1.5e-05 -4e-06 -0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.107 -0.0363 1.02 0 -0 0</pose>
+          <pose>0.107 -0.0363 1.015 1.5e-05 -4e-06 -0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='hengeresBabuKek_4'>
-        <pose>0.107 -0.094 1.02 0 -0 0</pose>
+        <pose>0.106997 -0.094 1.01499 3.4e-05 -9e-05 -0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.107 -0.094 1.02 0 -0 0</pose>
+          <pose>0.107 -0.094 1.01499 3.4e-05 -9e-05 -0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='hengeresBabuPiros_1'>
-        <pose>0.059 -0.094 1.02 0 -0 0</pose>
+        <pose>0.059 -0.094 1.015 8e-06 -9e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.059 -0.094 1.02 0 -0 0</pose>
+          <pose>0.059 -0.094 1.015 8e-06 -9e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='hengeresBabuPiros_2'>
-        <pose>0.059 -0.0363 1.015 1.4e-05 -1.8e-05 0</pose>
+        <pose>0.059 -0.0363 1.015 1.5e-05 -3.2e-05 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.059 -0.0363 1.015 1.4e-05 -1.8e-05 0</pose>
+          <pose>0.059 -0.0363 1.015 1.5e-05 -3.2e-05 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='hengeresBabuPiros_3'>
-        <pose>0.059 0.0363 1.015 1.6e-05 -2.3e-05 0</pose>
+        <pose>0.059 0.0363 1.015 1.4e-05 -2.7e-05 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.059 0.0363 1.015 1.6e-05 -2.3e-05 0</pose>
+          <pose>0.059 0.0363 1.015 1.4e-05 -2.7e-05 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='hengeresBabuPiros_4'>
-        <pose>0.059 0.094 1.015 0 0 0</pose>
+        <pose>0.059 0.094 1.01499 1.8e-05 4e-06 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>0.059 0.094 1.015 0 0 0</pose>
+          <pose>0.059 0.094 1.01499 1.8e-05 4e-06 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
@@ -589,46 +579,46 @@
         <pose>-0 -0 1.02 1e-06 -0.000276 -0</pose>
         <scale>1 1 1</scale>
         <link name='gripper_link'>
-          <pose>0.24574 0.021071 1.21659 -3e-06 0.035454 0.000266</pose>
-          <velocity>0.012489 -2.4e-05 -0.025904 -3.1e-05 0.115259 -0.000115</velocity>
-          <acceleration>-0 -0 0 0 -0 0</acceleration>
-          <wrench>-0 -0 0 0 -0 0</wrench>
+          <pose>0.245758 0.021067 1.21653 -3e-06 0.035787 0.000262</pose>
+          <velocity>0.012484 -2.4e-05 -0.02591 -3e-05 0.115276 -0.000115</velocity>
+          <acceleration>-0 -0 -0 0 -0 0</acceleration>
+          <wrench>-0 -0 -0 0 -0 0</wrench>
         </link>
         <link name='gripper_link_sub'>
-          <pose>0.245751 -0.02093 1.21659 -3e-06 0.035453 0.000266</pose>
-          <velocity>0.01248 0.015551 -0.025905 -3.1e-05 0.115259 -0.000115</velocity>
+          <pose>0.245769 -0.020924 1.21653 -3e-06 0.035786 0.000262</pose>
+          <velocity>0.012475 0.01953 -0.02591 -3e-05 0.115276 -0.000115</velocity>
           <acceleration>-0 2.5e-05 -0 0 -0 0</acceleration>
           <wrench>-0 0 -0 0 -0 0</wrench>
         </link>
         <link name='link1'>
           <pose>-0 -0 1.02 1e-06 -0.000276 -0</pose>
           <velocity>0 -0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='link2'>
-          <pose>0.012031 -0 1.037 -1e-06 0.000485 0.000268</pose>
-          <velocity>-0 0 0 -0 -0 -0.000115</velocity>
-          <acceleration>-0 -0 0 0 -0 0</acceleration>
+          <acceleration>-0 -0 0 -0 -0 -0</acceleration>
           <wrench>-0 -0 0 0 -0 0</wrench>
         </link>
+        <link name='link2'>
+          <pose>0.012031 -0 1.037 -1e-06 0.000485 0.000263</pose>
+          <velocity>-0 0 0 -0 -0 -0.000115</velocity>
+          <acceleration>0 -0 -0 0 -0 0</acceleration>
+          <wrench>0 -0 -0 0 -0 0</wrench>
+        </link>
         <link name='link3'>
-          <pose>0.012066 0 1.0965 -1e-06 0.032135 0.000266</pose>
-          <velocity>0 -0 1e-06 -2.8e-05 0.104406 -0.000115</velocity>
-          <acceleration>-0 -0 -0 4.3e-05 -0 1e-05</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>0.012066 0 1.0965 -1e-06 0.032293 0.000262</pose>
+          <velocity>0 -0 1e-06 -2.7e-05 0.104421 -0.000115</velocity>
+          <acceleration>0 -0 -0 4.3e-05 -0 1e-05</acceleration>
+          <wrench>0 -0 -0 0 -0 0</wrench>
         </link>
         <link name='link4'>
-          <pose>0.040167 8e-06 1.22366 -3e-06 0.033665 0.000266</pose>
-          <velocity>0.013277 0 -0.002933 -2.9e-05 0.109421 -0.000115</velocity>
-          <acceleration>-0 -0 -0 -1.8e-05 -0 -6.1e-05</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>0.040187 8e-06 1.22365 -3e-06 0.033891 0.000262</pose>
+          <velocity>0.013278 0 -0.002936 -2.9e-05 0.109438 -0.000115</velocity>
+          <acceleration>0 -0 -0 -1.8e-05 -0 -6.1e-05</acceleration>
+          <wrench>0 -0 -0 0 -0 0</wrench>
         </link>
         <link name='link5'>
-          <pose>0.164097 4.1e-05 1.21948 -3e-06 0.035452 0.000266</pose>
-          <velocity>0.01282 -1.4e-05 -0.016494 -3.1e-05 0.115259 -0.000115</velocity>
-          <acceleration>-0 0 -0 0 -0 0</acceleration>
-          <wrench>-0 0 -0 0 -0 0</wrench>
+          <pose>0.164116 4e-05 1.21945 -3e-06 0.035785 0.000262</pose>
+          <velocity>0.012819 -1.4e-05 -0.016498 -3e-05 0.115276 -0.000115</velocity>
+          <acceleration>-0 0 0 0 -0 0</acceleration>
+          <wrench>-0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='table'>
@@ -657,7 +647,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>0.012864 1.06663 1.81929 -0 0.75695 -1.29672</pose>
+        <pose>0.012686 1.06726 1.81859 -0 0.75695 -1.29672</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -679,7 +669,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <gravity>1</gravity>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
@@ -766,111 +756,6 @@
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
       <pose>0.476614 -0.228596 1.23928 0 -0 0</pose>
-    </model>
-    <model name='hengeresBabuKek'>
-      <link name='link_2'>
-        <inertial>
-          <mass>1</mass>
-          <inertia>
-            <ixx>0.166667</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>0.166667</iyy>
-            <iyz>0</iyz>
-            <izz>0.166667</izz>
-          </inertia>
-          <pose>0 0 0 0 -0 0</pose>
-        </inertial>
-        <pose>3e-06 0 0 0 -0 0</pose>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <visual name='visual'>
-          <pose>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>/home/mogi/catkin_ws/src/open_manipulator/open_manipulator_description/meshes/hengeres_babu_kek.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <shader type='pixel'>
-              <normal_map>__default__</normal_map>
-            </shader>
-            <ambient>0 0 1 1</ambient>
-            <diffuse>0 0 1 1</diffuse>
-            <specular>0.01 0.01 0.01 1</specular>
-            <emissive>0 0 0 1</emissive>
-          </material>
-          <transparency>0</transparency>
-          <cast_shadows>1</cast_shadows>
-        </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>/home/mogi/catkin_ws/src/open_manipulator/open_manipulator_description/meshes/hengeres_babu_kek.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <fdir1>0 0 0</fdir1>
-                <slip1>0</slip1>
-                <slip2>0</slip2>
-              </ode>
-              <torsional>
-                <coefficient>1</coefficient>
-                <patch_radius>0</patch_radius>
-                <surface_radius>0</surface_radius>
-                <use_patch_radius>1</use_patch_radius>
-                <ode>
-                  <slip>0</slip>
-                </ode>
-              </torsional>
-            </friction>
-            <bounce>
-              <restitution_coefficient>0</restitution_coefficient>
-              <threshold>1e+06</threshold>
-            </bounce>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-              <collide_bitmask>1</collide_bitmask>
-              <ode>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-                <max_vel>0.01</max_vel>
-                <min_depth>0</min_depth>
-              </ode>
-              <bullet>
-                <split_impulse>1</split_impulse>
-                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-              </bullet>
-            </contact>
-          </surface>
-        </collision>
-      </link>
-      <static>0</static>
-      <allow_auto_disable>1</allow_auto_disable>
-      <pose>-0.021187 0.605332 1.08363 0 -0 0</pose>
     </model>
     <model name='robot'>
       <joint name='world_fixed' type='fixed'>
@@ -1450,7 +1335,7 @@
         <pose>3e-06 0 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <gravity>1</gravity>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
@@ -1555,7 +1440,7 @@
         <pose>3e-06 0 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <gravity>1</gravity>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
@@ -1660,7 +1545,7 @@
         <pose>3e-06 0 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <gravity>1</gravity>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
@@ -1765,7 +1650,7 @@
         <pose>3e-06 0 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <gravity>1</gravity>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
@@ -1870,7 +1755,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <gravity>1</gravity>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
@@ -1975,7 +1860,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <gravity>1</gravity>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
@@ -2080,7 +1965,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <gravity>1</gravity>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
@@ -2168,6 +2053,6 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-0.201348 1.27173 1.02 0 -0 0</pose>
     </model>
-    <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/>
+    <plugin name='ros_link_attacher_plugin' filename='libgazebo_ros_link_attacher.so'/>
   </world>
 </sdf>

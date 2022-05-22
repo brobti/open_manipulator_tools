@@ -21,7 +21,7 @@ trajectory_command.joint_names = joint_names
 
 point = JointTrajectoryPoint()
 #Joint names: ['gripper']
-point.positions = [-0.1]
+point.positions = [-0.03]
 
 point.velocities = [0.0]
 point.time_from_start = rospy.rostime.Duration(1,0)
