@@ -137,9 +137,16 @@ class jointAnglesAction(object):
             self._as.set_succeeded(self._res)
 
 
+##Simulation
+'''
 def joint_angles_subscriber(msg):
     global JointStates
     JointStates = [msg.position[2], msg.position[3], msg.position[4], msg.position[5]]
+'''
+
+def joint_angles_subscriber(msg):
+    global JointStates
+    JointStates = [msg.position[0], msg.position[1], msg.position[2], msg.position[3]]
 
 
 if __name__ == "__main__":
