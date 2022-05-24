@@ -113,7 +113,7 @@ A játék pályája 3x3-as, a robot emellől veszi fel a bábukat, 4 kéket és 
 Kezdetben egy GitLab repositoryban próbáltunk meg dolgozni, de oda nem tudtuk forkolni a hivatalos openmanipulator repositorykat, ezért áttértünk githubra.
 A package-ek a dokumentum elején láthatók.
 ### Színfelismerés
-A színfelismeréshez kiinduló projektnek a https://github.com/MOGI-ROS/Week-5-6-Gazebo-sensors 5. pontjában használt kódból indultunk ki. A szimulált és a valós kamera a 'head_camera/image_raw' Ros topic-on keresztül folyamatosan publish-olja a képet, erre csatlakozik az `open_manipulator/open_manipulator_controller/scripts/color_recognition.py` subscribere.
+A színfelismeréshez kiinduló projektnek a https://github.com/MOGI-ROS/Week-5-6-Gazebo-sensors 5. pontjában használt kódból indultunk ki. A szimulált és a valós kamera a `head_camera/image_raw` Ros topic-on keresztül folyamatosan publish-olja a képet, erre csatlakozik az `open_manipulator/open_manipulator_controller/scripts/color_recognition.py` subscribere.
 Az implementált color recognition open_cv használatával két, előre beállított RGB értéket keres a képen. Az ismert RGB értékek alapján `binary treshold` algoritmussal mindhárom színcsatornára elkészíti a maszkot, majd ezek metszetéből meghatározza a tényleges bináris képet.
 A bináris képből az open_cv beépített `cv2.findContours()` algoritmusával meghatározzuk a bábuink felületét és azok középpontjait.
 A megharározott középpontokat az egyszerűség kedvéért egy String-be összefűzve publisholjuk a `/color_recognition` topicra. Ezen felül a bináris képeket elhelyeztük a nyers képre, és azt vizuálisan megjelenítettük a könnyű kezelhetőség érdekében.
@@ -132,6 +132,12 @@ Valós kamerával:
 [PC terminal 2] rosrun open_manipulator_controller color_recognition.py
 ```
 ### Inverz kinematika
-Az inverz kinematika tényleges implementációja már a https://github.com/MOGI-ROS/open_manipulator_tools repositoryban megtörtént. Ebből készítettük a https://github.com/brobti/open_manipulator_tools.git forkot, majd ennek a ticTacToe branch-óét. Ezen a branchen került implementálásra a robot és az amőbázó script közötti kommunikációt megvalósító 'action server'. 
+Az inverz kinematika tényleges implementációja már a https://github.com/MOGI-ROS/open_manipulator_tools repositoryban megtörtént. Ebből készítettük a https://github.com/brobti/open_manipulator_tools.git forkot, majd ennek a ticTacToe branch-ét. Ezen a branchen került implementálásra a robot és az amőbázó script közötti kommunikációt megvalósító `action server`.
+#### Action Server működése
+Az általunk definiált `kinematicsAction` message a következőképpen épül fel:
+ - input: x, y, z, angle
+ - feedback: time_elapsed
+ - result: result
+Az action server az `/arm_controller/command` nodera publisholja az inverz kinematikával számolt joint szögeket, majd a `/joint_states` node-ra feliratkozik, és innen a joint szögeket kinyeri. A script folyamatosan fut, amíg a kiküldött és az érkező joint szögek különbsége egy delta érték alá nem esik, ekkor leáll és a `result` értéket `True`-ra állítja. Emellett a folyamat során a `time_elapsed` számlálót folyamatosan inkrementálja egy maximális értékig. Amennyiben a számláló eléri ezt az értéket, a folyamat timeouttal leáll, és `False` lesz a `result` értéke.
 # To do
 - [ ] kép a színfelismerésről
