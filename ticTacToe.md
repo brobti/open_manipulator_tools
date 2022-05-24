@@ -137,6 +137,9 @@ Az általunk definiált `kinematicsAction` message a következőképpen épül f
 Az action server az `/arm_controller/command` nodera publisholja az inverz kinematikával számolt joint szögeket, majd a `/joint_states` node-ra feliratkozik, és innen a joint szögeket kinyeri. A script folyamatosan fut, amíg a kiküldött és az érkező joint szögek különbsége egy delta érték alá nem esik, ekkor leáll és a `result` értéket `True`-ra állítja. Emellett a folyamat során a `time_elapsed` számlálót folyamatosan inkrementálja egy maximális értékig. Amennyiben a számláló eléri ezt az értéket, a folyamat timeouttal leáll, és `False` lesz a `result` értéke.
 ### A main function
 #### A pálya feldolgozása
+A /color_recognition topicra feliratkozva kérjük le a táblán látható bábuk képkoordinátáit és színeit, mikor egy megadott rátekintési pozícióból figyel a robot. Ezekre a koordinátákra megnézzük sor és oszlop szerint, hogy az előre meghatározott keresési intervallumon belül vannak-e, és ezek alapján töltünk fel egy 9 elemű vektort, ami a jelenlegi játszma állását tartalmazza. Minden lépés előtt megnézzük az állást, és ez alapján választunk pozíviót (a következő alfejezetben részletezett módon), ahova le szeretnénk tenni a bábut. Ez a módszer azért jobb, mint ha elmentenénk a korábbi lépéseinket, mert át lehet alakítani olyan formára, ahol a robot emberrel játszik.
+#### Amőba algoritmus
+
 ### Bugok
 - rostopic pub /option std_msgs/String "print_open_manipulator_setting" -> nem írja ki az infókat a controlleres terminálablakba
 - teleop_keyboard néha random lefagy -> indítsd újra a controllert és a teleop_keyboardot is!
