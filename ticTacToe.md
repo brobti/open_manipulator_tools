@@ -101,11 +101,6 @@ Jelszó: turtlebot
 [PI terminal] ssh ubuntu@10.0.0.11
 [PI terminal] rosrun mecanum_anomaly_det StreamCam.py
 ```
-### Bugok
-- rostopic pub /option std_msgs/String "print_open_manipulator_setting" -> nem írja ki az infókat a controlleres terminálablakba
-- teleop_keyboard néha random lefagy -> indítsd újra a controllert és a teleop_keyboardot is!
-- gazeboban a robot megfogója open állapotban ugrál, closed állapotban nem
-- gravity compensationhöz Dynamixel Wizardban kéne beállítani valamit, amit nem tudtam telepíteni (nekünk nem is feltétlen kell)
 ### Rövid összefoglalás
 A projektünk során Robotis OpenMANIPULATOR-X robottal valósítottunk meg egy színfeismeréssel működő amőbaprogramot, aminek során a robot lejátszik magával egy amőba játszmát, és minden lépés előtt megnézi és feldolgozza a jelenlegi állást. Azért nem a korábbi lépések elmentését használtuk a következő lépés eldöntéséhez, mert így a projekt átalakítható később olyanra, ahol a robot ember ellen játszik.
 A játék pályája 3x3-as, a robot emellől veszi fel a bábukat, 4 kéket és 4 pirosat. Ezeket a Polimertechnológia Tanszék készítette el számunkra. A projekt 3 fő részből áll, a következőkben ezeken fogunk végigmenni.
@@ -140,5 +135,11 @@ Az általunk definiált `kinematicsAction` message a következőképpen épül f
  - result: result
 
 Az action server az `/arm_controller/command` nodera publisholja az inverz kinematikával számolt joint szögeket, majd a `/joint_states` node-ra feliratkozik, és innen a joint szögeket kinyeri. A script folyamatosan fut, amíg a kiküldött és az érkező joint szögek különbsége egy delta érték alá nem esik, ekkor leáll és a `result` értéket `True`-ra állítja. Emellett a folyamat során a `time_elapsed` számlálót folyamatosan inkrementálja egy maximális értékig. Amennyiben a számláló eléri ezt az értéket, a folyamat timeouttal leáll, és `False` lesz a `result` értéke.
+### Bugok
+- rostopic pub /option std_msgs/String "print_open_manipulator_setting" -> nem írja ki az infókat a controlleres terminálablakba
+- teleop_keyboard néha random lefagy -> indítsd újra a controllert és a teleop_keyboardot is!
+- gazeboban a robot megfogója open állapotban ugrál, closed állapotban nem
+- gravity compensationhöz Dynamixel Wizardban kéne beállítani valamit, amit nem tudtam telepíteni (nekünk nem is feltétlen kell)
 # To do
 - [ ] kép a színfelismerésről
+- [ ] bugok szekció átdolgozása/kitörlése
