@@ -90,6 +90,14 @@ roslaunch open_manipulator_controller open_manipulator_controller.launch use_pla
 ```
 roslaunch open_manipulator_controllers joint_trajectory_controller.launch 
 ```
+Valós kamera elindítása:
+Feltéve, hogy a felhasznált Rasberry Pi kapcsolódik a wifi hálózatra, csatlakozzunk rá, ez lesz a '[PI terminal]':
+IP: 10.0.0.11
+Jelszó: turtlebot
+```
+[PI terminal] ssh ubuntu@10.0.0.11
+[PI terminal] rosrun mecanum_anomaly_det StreamCam.py
+```
 ### Bugok
 - rostopic pub /option std_msgs/String "print_open_manipulator_setting" -> nem írja ki az infókat a controlleres terminálablakba
 - teleop_keyboard néha random lefagy -> indítsd újra a controllert és a teleop_keyboardot is!
@@ -102,4 +110,21 @@ A játék pályája 3x3-as, a robot emellől veszi fel a bábukat, 4 kéket és 
 Kezdetben egy GitLab repositoryban próbáltunk meg dolgozni, de oda nem tudtuk forkolni a hivatalos openmanipulator repositorykat, ezért áttértünk githubra.
 A package-ek a dokumentum elején láthatók.
 ### Színfelismerés
-A színfelismerést az órai anyag átírásával valósítottuk meg. A szimulált kamera egy Ros node-on keresztül folyamatosan frissíti a képet, amit küld.
+A színfelismeréshez kiinduló projektnek a https://github.com/MOGI-ROS/Week-5-6-Gazebo-sensors 5. pontjában használt kódból indultunk ki. A szimulált és a valós kamera a 'head_camera/image_raw' Ros topic-on keresztül folyamatosan publish-olja a képet, erre csatlakozik az 'open_manipulator/open_manipulator_controller/scripts/color_recognition.py' subscribere.
+Az implementált color recognition open_cv használatával két, előre beállított RGB értéket keres a képen. Az ismert RGB értékek alapján 'binary treshold' algoritmussal mindhárom színcsatornára elkészíti a maszkot, majd ezek metszetéből meghatározza a tényleges bináris képet.
+A bináris képből az open_cv beépített 'cv2.findContours()' algoritmusával meghatározzuk a bábúink felületét és azok középpontjait.
+A megharározott középpontokat az egyszerűség kedvéért egy String-be összefűzve publisholjuk a '/color_recognition' topicra. Ezen felül a bináris képeket elhelyeztük a nyers képre, és azt vizuálisan megjelenítettük a könnyű kezelhetőség érdekében.
+#### A színfelismerés elindítása:
+Szimulációval:
+```
+[PC terminal 1] roscore
+[PC terminal 2] roslaunch open_manipulator_controller open_manipulator_controller.launch
+[PC terminal 3] rosrun open_manipulator_controller color_recognition.py
+```
+
+Valós kamerával:
+```
+[PC terminal 1] roscore
+[PI terminal] rosrun mecanum_anomaly_det StreamCam.py
+[PC terminal 2] rosrun open_manipulator_controller color_recognition.py
+```
