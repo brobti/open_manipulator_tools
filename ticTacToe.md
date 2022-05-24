@@ -135,6 +135,8 @@ Az általunk definiált `kinematicsAction` message a következőképpen épül f
  - result: result
 
 Az action server az `/arm_controller/command` nodera publisholja az inverz kinematikával számolt joint szögeket, majd a `/joint_states` node-ra feliratkozik, és innen a joint szögeket kinyeri. A script folyamatosan fut, amíg a kiküldött és az érkező joint szögek különbsége egy delta érték alá nem esik, ekkor leáll és a `result` értéket `True`-ra állítja. Emellett a folyamat során a `time_elapsed` számlálót folyamatosan inkrementálja egy maximális értékig. Amennyiben a számláló eléri ezt az értéket, a folyamat timeouttal leáll, és `False` lesz a `result` értéke.
+### A main function
+#### A pálya feldolgozása
 ### Bugok
 - rostopic pub /option std_msgs/String "print_open_manipulator_setting" -> nem írja ki az infókat a controlleres terminálablakba
 - teleop_keyboard néha random lefagy -> indítsd újra a controllert és a teleop_keyboardot is!
