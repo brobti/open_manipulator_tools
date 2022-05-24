@@ -142,9 +142,9 @@ A `/color_recognition` topicra feliratkozva kérjük le a táblán látható bá
 Az amőba algoritmushoz használt kiindulási alap: https://www.techwithtim.net/tutorials/python-programming/tic-tac-toe-tutorial/
 Az algoritmus kap egy páylát és játékost (piros v. kék) bemenetként, és választ hozzá lépést. Első lépésként elmenti az üres pozíciók indexeit. Amennyiben a pálya üres, véletlenszerűen választ. Ha már vannak fent bábuk, megnézi, meg tudja-e nyerni az adott játékos egy lépéssel a játszmát, vagy meg tudja-e akadályozni azt, hogy az ellenfél nyerjen. Mikor ilyen helyzetek nincsenek, először a pálya közepére próbál rakni, ha az foglalt, akkor véletlenszerűen választ magának egy üres sarkot, ha pedig ilyen nincsen, az egyik oldalra rak.
 Abban az esetben, ha valaki nyer, vagy elfogynak az asztal mellől a bábuk, a szimuláció vagy a fizikai robot megáll.
-#### Pick and place
-#### Move
-#### 
+#### Pick and place állapotautomata
+#### Move függvény
+#### tic_tac_toe
 ### Bugok
 - rostopic pub /option std_msgs/String "print_open_manipulator_setting" -> nem írja ki az infókat a controlleres terminálablakba
 - teleop_keyboard néha random lefagy -> indítsd újra a controllert és a teleop_keyboardot is!
