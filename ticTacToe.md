@@ -132,12 +132,13 @@ Valós kamerával:
 [PC terminal 2] rosrun open_manipulator_controller color_recognition.py
 ```
 ### Inverz kinematika
-Az inverz kinematika tényleges implementációja már a https://github.com/MOGI-ROS/open_manipulator_tools repositoryban megtörtént. Ebből készítettük a https://github.com/brobti/open_manipulator_tools.git forkot, majd ennek a ticTacToe branch-ét. Ezen a branchen került implementálásra a robot és az amőbázó script közötti kommunikációt megvalósító `action server`.
+Az inverz kinematika tényleges implementációja már a https://github.com/MOGI-ROS/open_manipulator_tools repositoryban megtörtént. Ebből készítettük a https://github.com/brobti/open_manipulator_tools.git forkot, majd ennek a ticTacToe branch-ét. Ezen a branchen került implementálásra az `open_manipulator_tools/inverse_kinematics.py`, a robot és az amőbázó script közötti kommunikációt megvalósító `action server`.
 #### Action Server működése
 Az általunk definiált `kinematicsAction` message a következőképpen épül fel:
  - input: x, y, z, angle
  - feedback: time_elapsed
  - result: result
+
 Az action server az `/arm_controller/command` nodera publisholja az inverz kinematikával számolt joint szögeket, majd a `/joint_states` node-ra feliratkozik, és innen a joint szögeket kinyeri. A script folyamatosan fut, amíg a kiküldött és az érkező joint szögek különbsége egy delta érték alá nem esik, ekkor leáll és a `result` értéket `True`-ra állítja. Emellett a folyamat során a `time_elapsed` számlálót folyamatosan inkrementálja egy maximális értékig. Amennyiben a számláló eléri ezt az értéket, a folyamat timeouttal leáll, és `False` lesz a `result` értéke.
 # To do
 - [ ] kép a színfelismerésről
