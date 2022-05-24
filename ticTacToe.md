@@ -1,4 +1,4 @@
-# 05 Telemanipulátor - Amőba
+# 05 OpenManipulátor - Amőba
 
 ## Migrálás, setup
 
