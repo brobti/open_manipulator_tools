@@ -92,8 +92,11 @@ roslaunch open_manipulator_controllers joint_trajectory_controller.launch
 ```
 Valós kamera elindítása:
 Feltéve, hogy a felhasznált Rasberry Pi kapcsolódik a wifi hálózatra, csatlakozzunk rá, ez lesz a '[PI terminal]':
+
 IP: 10.0.0.11
+
 Jelszó: turtlebot
+
 ```
 [PI terminal] ssh ubuntu@10.0.0.11
 [PI terminal] rosrun mecanum_anomaly_det StreamCam.py
