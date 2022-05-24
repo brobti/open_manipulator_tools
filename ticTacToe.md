@@ -11,12 +11,15 @@ Telepített package-ek:
 - ros-noetic-dynamixel-sdk 
 - ros-noetic-dynamixel-workbench
 - ros-noetic-robotis-manipulator
-- git clone -b noetic-devel https://github.com/ROBOTIS-GIT/open_manipulator.git
+- git clone -b noetic-devel-mod https://github.com/brobti/open_manipulator.git
 - git clone -b noetic-devel https://github.com/ROBOTIS-GIT/open_manipulator_msgs.git
 - git clone -b noetic-devel https://github.com/ROBOTIS-GIT/open_manipulator_simulations.git
 - git clone https://github.com/ROBOTIS-GIT/open_manipulator_dependencies.git
 - ros-noetic-joint-state-publisher-gui
-- git clone https://github.com/ROBOTIS-GIT/open_manipulator_controls.git
+- git clone -b telemanipulator https://github.com/brobti/open_manipulator_controls.git
+- git clone -b ticTacToe https://github.com/brobti/open_manipulator_tools.git
+- git clone https://github.com/MOGI-ROS/gazebo_ros_link_attacher.git
+- git clone https://github.com/MOGI-ROS/open_manipulator_ikfast_plugin
 
 ### Robot fizikai irányításának parancsai
 
@@ -92,3 +95,11 @@ roslaunch open_manipulator_controllers joint_trajectory_controller.launch
 - teleop_keyboard néha random lefagy -> indítsd újra a controllert és a teleop_keyboardot is!
 - gazeboban a robot megfogója open állapotban ugrál, closed állapotban nem
 - gravity compensationhöz Dynamixel Wizardban kéne beállítani valamit, amit nem tudtam telepíteni (nekünk nem is feltétlen kell)
+### Rövid összefoglalás
+A projektünk során Robotis OpenMANIPULATOR-X robottal valósítottunk meg egy színfeismeréssel működő amőbaprogramot, aminek során a robot lejátszik magával egy amőba játszmát, és minden lépés előtt megnézi és feldolgozza a jelenlegi állást. Azért nem a korábbi lépések elmentését használtuk a következő lépés eldöntéséhez, mert így a projekt átalakítható később olyanra, ahol a robot ember ellen játszik.
+A játék pályája 3x3-as, a robot emellől veszi fel a bábukat, 4 kéket és 4 pirosat. Ezeket a Polimertechnológia Tanszék készítette el számunkra. A projekt 3 fő részből áll, a következőkben ezeken fogunk végigmenni.
+### Forkolt repositoryk
+Kezdetben egy GitLab repositoryban próbáltunk meg dolgozni, de oda nem tudtuk forkolni a hivatalos openmanipulator repositorykat, ezért áttértünk githubra.
+A package-ek a dokumentum elején láthatók.
+### Színfelismerés
+A színfelismerést az órai anyag átírásával valósítottuk meg. A szimulált kamera egy Ros node-on keresztül folyamatosan frissíti a képet, amit küld.
