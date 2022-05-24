@@ -122,9 +122,9 @@ class jointAnglesAction(object):
                 and self._fb.time_elapsed < maxValue:
             self._fb.time_elapsed = self._fb.time_elapsed + 1
             self._as.publish_feedback(self._fb)
-            # rospy.loginfo(JointStates)
-            # rospy.loginfo(joint_angles)
-            # rospy.loginfo(delta)
+            rospy.loginfo(JointStates)
+            rospy.loginfo(joint_angles)
+            rospy.loginfo(delta)
             rate.sleep()
 
         if success:
@@ -138,7 +138,7 @@ class jointAnglesAction(object):
 
 
 ##Simulation
-'''
+
 def joint_angles_subscriber(msg):
     global JointStates
     JointStates = [msg.position[2], msg.position[3], msg.position[4], msg.position[5]]
@@ -147,6 +147,7 @@ def joint_angles_subscriber(msg):
 def joint_angles_subscriber(msg):
     global JointStates
     JointStates = [msg.position[0], msg.position[1], msg.position[2], msg.position[3]]
+'''
 
 if __name__ == "__main__":
     queueSize = 1
