@@ -3,6 +3,7 @@
 import rospy
 import math
 import actionlib
+import sys
 
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from sensor_msgs.msg import JointState
@@ -113,7 +114,10 @@ class jointAnglesAction(object):
 
         # subscriber checking the joints until the gripper arrives to the destination
         error = 0.1
-        maxValue = 100000
+        if simSwitch == "sim":
+            maxValue = 100
+        else:
+            maxValue = 5
         delta = [abs(JointStates[0] - joint_angles[0]), abs(JointStates[1] - joint_angles[1]),abs(JointStates[2] - joint_angles[2]), abs(JointStates[3] - joint_angles[3])]
         while (abs(JointStates[0] - joint_angles[0]) > error or abs(
                 JointStates[1] - joint_angles[1]) > error or
@@ -129,26 +133,30 @@ class jointAnglesAction(object):
 
         if success:
             if self._fb.time_elapsed >= maxValue:
-                retVal = False
-            else:
                 retVal = True
+            else:
+                if simSwitch == "sim":
+                    retVal = False
+                else:
+                    retVal = True
             self._res.result = retVal
             rospy.loginfo("%s reached its goal" % self._action_name)
             self._as.set_succeeded(self._res)
 
 
-##Simulation
-'''
 def joint_angles_subscriber(msg):
     global JointStates
-    JointStates = [msg.position[2], msg.position[3], msg.position[4], msg.position[5]]
-'''
+    if simSwitch == "sim":
+        JointStates = [msg.position[2], msg.position[3], msg.position[4], msg.position[5]]
+    else:
+        JointStates = [msg.position[0], msg.position[1], msg.position[2], msg.position[3]]
 
-def joint_angles_subscriber(msg):
-    global JointStates
-    JointStates = [msg.position[0], msg.position[1], msg.position[2], msg.position[3]]
 
 if __name__ == "__main__":
+    try:
+        simSwitch = rospy.myargv(argv=sys.argv)[1]
+    except:
+        simSwitch = ""
     queueSize = 1
     rospy.init_node('send_joint_angles_ik')
     joint_topic = "/joint_states"
